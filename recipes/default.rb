@@ -22,3 +22,8 @@ end
 php_fpm_pool "www" do
   php_options 'php_flag[display_errors]' => 'on', 'php_admin_flag[display_errors]' => 'on', 'php_admin_value[memory_limit]' => '1024M'
 end
+
+# Install php-mysql
+apt_package "php-mysql" do
+  action :install
+end

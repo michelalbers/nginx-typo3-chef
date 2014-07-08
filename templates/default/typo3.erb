@@ -2,7 +2,8 @@ server {
   listen   80;
   server_name  <%= node['hostname'] %>;
 
-  index index.html index.html index.php;
+  index index.php index.html index.htm;
+  root   <%= node['nginx']['default_root'] %>;
 
   access_log  <%= node['nginx']['log_dir'] %>/localhost.access.log;
 
@@ -62,9 +63,7 @@ server {
   }
 
   location / {
-    root   <%= node['nginx']['default_root'] %>;
     try_files $uri $uri/ /index.php$is_args$args;
-    index  index.html index.htm index.php;
   }
 
 }

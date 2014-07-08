@@ -20,10 +20,20 @@ end
 
 # Enable PHP Error Logging
 php_fpm_pool "www" do
-  php_options 'php_flag[display_errors]' => 'on', 'php_admin_flag[display_errors]' => 'on', 'php_admin_value[memory_limit]' => '1024M'
+  php_options 'php_flag[display_errors]' => 'on', 'php_admin_flag[display_errors]' => 'on', 'php_admin_value[memory_limit]' => '1024M', 'php_admin_value[upload_max_filesize]' => '1024M'
 end
 
 # Install php-mysql
 apt_package "php5-mysql" do
+  action :install
+end
+
+# Install php5-gd
+apt_package "php5-gd" do
+  action :install
+end
+
+# Install graphicsmagick
+apt_package "graphicsmagick" do
   action :install
 end

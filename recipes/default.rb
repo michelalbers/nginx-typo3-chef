@@ -24,6 +24,6 @@ php_fpm_pool "www" do
 end
 
 # Install php-mysql
-apt_package "php-mysql" do
+apt_package "php5-mysql" do
   action :install
 end

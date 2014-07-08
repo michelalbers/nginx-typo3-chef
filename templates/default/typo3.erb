@@ -2,6 +2,8 @@ server {
   listen   80;
   server_name  <%= node['hostname'] %>;
 
+  index index.html index.html index.php;
+
   access_log  <%= node['nginx']['log_dir'] %>/localhost.access.log;
 
   # Enable gzip for everything over IE6
@@ -13,6 +15,7 @@ server {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass unix:/var/run/php-fpm-www.sock;
         fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
   }
 

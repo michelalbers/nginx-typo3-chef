@@ -37,3 +37,12 @@ end
 apt_package "graphicsmagick" do
   action :install
 end
+
+# Install custom my.cnf for mysql
+template "/etc/mysql/conf.d/my.cnf" do
+  owner "mysql"
+  owner "mysql"
+  source "mysql.erb"
+  notifies :restart, 'mysql_service[default]'
+end
+

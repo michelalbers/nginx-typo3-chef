@@ -37,3 +37,8 @@ end
 apt_package "graphicsmagick" do
   action :install
 end
+
+# Install php5-cli
+apt_package "php5-cli" do
+  action :install
+end

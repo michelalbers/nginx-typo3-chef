@@ -42,3 +42,8 @@ end
 apt_package "php5-cli" do
   action :install
 end
+
+# Install git
+apt_package "git" do
+  action :install
+end

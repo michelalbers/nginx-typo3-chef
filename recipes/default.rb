@@ -38,6 +38,11 @@ apt_package "graphicsmagick" do
   action :install
 end
 
+# Install graphicsmagick imagemagick bindings
+apt_package "graphicsmagick-imagemagick-compat" do
+  action :install
+end
+
 # Install php5-cli
 apt_package "php5-cli" do
   action :install
